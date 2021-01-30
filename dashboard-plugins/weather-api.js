@@ -1,15 +1,5 @@
 const got = require("got");
 
-const h = require('vhtml');
-/** @jsx h */
-/*
-When creating class name or id to use them in script element please do it in this way
-for example from <h5 id="id"> to <h5 id={YouClassName.name + id}>
-to make this as unique as possible and avoid having duplicate id with other plugins
-and to make it easier to debug.
-
-*/
-
 module.exports = class WeatherAPI {
   
   constructor() {
