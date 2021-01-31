@@ -38,7 +38,7 @@ module.exports = class Soundcloud {
 
         const randomIndex = Math.floor(Math.random() * ids.length); 
 
-        return buildEmbeddedUrl(ids[randomIndex]);
+        return this.buildEmbeddedUrl(ids[randomIndex]);
     }
 
     getTitle(){
@@ -51,6 +51,8 @@ module.exports = class Soundcloud {
     }
 
     getPartOfDay(){
+	const currentHour = new Date().getHours();
+
         if (currentHour < 12)
             return 'MORNING';
         else if (currentHour < 18)
