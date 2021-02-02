@@ -1,1 +1,1 @@
-# dashboard-plugins
+# In0ne Plugins
