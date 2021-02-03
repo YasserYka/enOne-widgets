@@ -18,14 +18,21 @@ module.exports = class TrendingRepositories {
 
         this.renderNews();
         
-        setInterval(this.renderRepositories, 0); 
+        setInterval(this.renderRepositories, 43200000 /* 12 hours in miliseconds */); 
     }
 
     renderRepositories() {
-        this.fetchTrendingPage().then(page => {
+        this.fetchTrendingPage().then(repositories => {
+            
+        });
+    }
+
+    async fetchTrendingPage(){
+        return await got('https://github.com/trending').then(response => {
+        
             const selector = cheerio.load(response.body);
 
-            selector('.Box-row').get().map(element => {
+            return selector('.Box-row').get().map(element => {
                 element = cheerio(element);
                 
                 let uri = element.find("h1:nth-child(2) > a:nth-child(1)").attr('href').substring(1);
@@ -37,13 +44,7 @@ module.exports = class TrendingRepositories {
                     'url': 'https://github.com/' + uri 
                 };
             });
-        });
-    }
 
-    async fetchTrendingPage(){
-        return await got('https://github.com/trending').then(response => {
-        
-            return response.body;
         }).catch(error => {
 
             console.error(error);
