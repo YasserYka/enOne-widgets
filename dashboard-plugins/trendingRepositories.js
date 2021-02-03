@@ -8,11 +8,8 @@ module.exports = class TrendingRepositories {
   async render() {
     return (
       <div class="card">
-        <div class="card-body">
-          <div id="repositories-list" class="list-group">
-            
-          </div>
-        </div>
+        <div class="card-header">Trending repositories on GitHub <i class="fa fa-github fa-lg ml-1"></i></div>
+          <div id="repositories-list" class="list-group"></div>
       </div>
     );
   }
@@ -26,17 +23,20 @@ module.exports = class TrendingRepositories {
   renderRepositories() {
     this.fetchTrendingPage().then((repositories) => {
 
-        document.getElementById('repositories-list').innerHTML = repositories.map(repository => {
+      repositories = repositories.slice(0, 6);
 
-            return <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{repository.title}</h5>
-                <small>{repository.stars}</small>
-              </div>
-              <p class="mb-1">{repository.description}</p>
-              <small><a href={repository.url}>Open</a></small>
+      document.getElementById("repositories-list").innerHTML = repositories
+        .map((repository) => {
+          return (
+            <a href={repository.url} class="list-group-item list-group-item-action">
+              <h5 class="list-group-item-heading">{repository.title}</h5>
+              <p class="list-group-item-text">{repository.description}</p>
+
+              <span class="badge">{repository.stars}</span>
             </a>
-        });
+          );
+        })
+        .join(" ");
     });
   }
 
