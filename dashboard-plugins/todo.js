@@ -1,5 +1,8 @@
 module.exports = class TODOs {
-  async initialize() {}
+  async initialize() {
+
+    this.renderTodos = this.renderTodos.bind(this);
+  }
 
   async render() {
     return (
@@ -16,8 +19,6 @@ module.exports = class TODOs {
     this.renderTodos();
 
     document.getElementById("todo-list").addEventListener("keypress", this.addTodo.bind(this));
-
-    document.getElementsByClassName("deletetodo").addEventListener("click", this.removeTodo.bind(this));
   }
 
   addTodo(event) {
@@ -30,7 +31,6 @@ module.exports = class TODOs {
       if (todoInputElement.value) {
         todos.push(todoInputElement.value);
 
-        console.log(JSON.stringify(todos));
         localStorage.setItem("todo-list", JSON.stringify(todos));
       }
 
@@ -59,14 +59,23 @@ module.exports = class TODOs {
      
       document.querySelectorAll('.todo ').forEach(element => {
 
-        element.addEventListener('click', this.removeTodo);
-      })
+        element.addEventListener('click', this.removeTodo.bind(this));
+      });
         
     }
   }
 
   removeTodo(event) {
+    let id = event.currentTarget.dataset.id;
 
-    console.log('x')
+    let todos = localStorage.getItem("todo-list");
+
+    if (todos) {
+      todos = JSON.parse(todos);
+
+      localStorage.setItem('todo-list' , JSON.stringify(todos.filter((_, index) => !index == id)));
+    }  
+
+    this.renderTodos();
   }
 };
