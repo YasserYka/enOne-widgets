@@ -7,10 +7,14 @@ module.exports = class TODOs {
   async render() {
     return (
       <div class="card mt-2 shadow bg-dark text-center">
-        <input id="todo-list" type="text" placeholder="Press Enter" />
-        <ul id="todolist" class="list-group">
+        <div class="card-header">TODO</div>
 
-        </ul>
+        <div class="card-body">
+          <input id="todo-list" type="text" placeholder="Enter your task" />
+          <ul id="todolist" class="list-group mt-1">
+
+          </ul>
+        </div>
       </div>
     );
   }
@@ -50,7 +54,7 @@ module.exports = class TODOs {
         .map((todo, index) => (
           <li data-id={index} class="list-group-item todo d-flex justify-content-between align-items-center">
             {todo}
-            <span class="deletetodo" class="badge badge-primary badge-pill">
+            <span class="badge deletetodo badge-secondary badge-pill" style="cursor:pointer;">
               X
             </span>
           </li>
@@ -66,14 +70,14 @@ module.exports = class TODOs {
   }
 
   removeTodo(event) {
-    let id = event.currentTarget.dataset.id;
+    let id = parseInt(event.currentTarget.dataset.id);
 
     let todos = localStorage.getItem("todo-list");
 
     if (todos) {
       todos = JSON.parse(todos);
 
-      localStorage.setItem('todo-list' , JSON.stringify(todos.filter((_, index) => !index == id)));
+      localStorage.setItem('todo-list' , JSON.stringify(todos.filter((_, index) => index !== id)));
     }  
 
     this.renderTodos();
