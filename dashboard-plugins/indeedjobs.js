@@ -1,7 +1,7 @@
 const indeed_scraper = require('indeed-scraper');
 
 module.exports = class IndeedJobs {
-  async initialize() {}
+  async initialize(config) {}
 
   async render() {
     return (

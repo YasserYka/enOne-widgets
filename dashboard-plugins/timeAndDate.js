@@ -2,7 +2,7 @@
 var got = require("got");
 
 module.exports = class TimeAndDate {
-  async initialize() {}
+  async initialize(config) {}
 
   async render() {
     return (

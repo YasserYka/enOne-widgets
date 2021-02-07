@@ -3,7 +3,7 @@ var got = require("got");
 const cheerio = require("cheerio");
 
 module.exports = class TrendingRepositories {
-  async initialize() {}
+  async initialize(config) {}
 
   async render() {
     return (
@@ -28,7 +28,7 @@ module.exports = class TrendingRepositories {
       document.getElementById("repositories-list").innerHTML = repositories
         .map((repository) => {
           return (
-            <a href={repository.url} class="list-group-item list-group-item-action">
+            <a target="_blank" href={repository.url} class="list-group-item list-group-item-action">
               <h5 class="list-group-item-heading">{repository.title}</h5>
               <p class="list-group-item-text">{repository.description}</p>
 

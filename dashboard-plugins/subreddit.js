@@ -2,7 +2,7 @@ var got = require("got");
 
 module.exports = class Subreddit {
   
-    async initialize() {
+    async initialize(config) {
   
         this.baseurl = 'https://www.reddit.com/';
     }
@@ -17,6 +17,13 @@ module.exports = class Subreddit {
     }
   
     async script() {
+
+        this.getAndRenderPosts();
+        
+        setInterval(this.getAndRenderPosts, 3600000 /*  one hour in milliseconds */); 
+    }
+
+    getAndRenderPosts(){
 
         this.getSubredditPosts().then(response => {
 

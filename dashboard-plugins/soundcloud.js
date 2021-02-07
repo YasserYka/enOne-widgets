@@ -1,6 +1,6 @@
 module.exports = class Soundcloud {
   
-    constructor() {
+    async initialize(config) {
   
         this.playlist = this.getPlaylist();
         this.title = this.getTitle();

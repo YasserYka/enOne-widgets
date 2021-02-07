@@ -3,7 +3,7 @@ var got = require('got');
 
 module.exports = class Hackernews {
   
-    async initialize() { }
+    async initialize(config) {}
   
     async render() {
 

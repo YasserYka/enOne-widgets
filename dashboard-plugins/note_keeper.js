@@ -1,4 +1,5 @@
 module.exports = class note_keeper {
+  async initialize(config) {}
 
   // JSX code to be displayed.
   async render() {

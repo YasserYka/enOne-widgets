@@ -1,5 +1,5 @@
 module.exports = class TODOs {
-  async initialize() {
+  async initialize(config) {
     this.renderTodos = this.renderTodos.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);

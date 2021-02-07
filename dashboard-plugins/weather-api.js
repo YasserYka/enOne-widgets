@@ -2,16 +2,12 @@ const got = require("got");
 
 module.exports = class WeatherAPI {
   
-  constructor() {
+  async initialize(config) {
     this.weather = {
       temperature: null,
       image: null,
       description: null,
     }; // defien default values
-
-   this.render().then(res => {
-    muuriAdd(res);
-    });
 
   }
 
