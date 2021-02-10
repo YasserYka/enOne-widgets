@@ -25,17 +25,17 @@ module.exports = class TwitterList {
 
   async script() {
 
-    document.body.removeChild(this.script);
+    document.body.removeChild(this.widgetScript);
   }
 
   appendWidgetScript() {
 
-    this.script = document.createElement('script');
-    this.script.src = 'https://platform.twitter.com/widgets.js';
-    this.script.setAttribute("charset", "utf-8");
-    this.script.async = true;
+    this.widgetScript = document.createElement('script');
+    this.widgetScript.src = 'https://platform.twitter.com/widgets.js';
+    this.widgetScript.setAttribute("charset", "utf-8");
+    this.widgetScript.async = true;
     
-    document.body.appendChild(this.script);
+    document.body.appendChild(this.widgetScript);
   }
 
 };                  
