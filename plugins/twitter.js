@@ -1,5 +1,11 @@
 module.exports = class Twitter {
   
+    /* 
+      This widget won't work if twitter's script element is inside Muuri's item
+        a workaround is to append the script in the body then after rendering the 
+        widget the script won't be needed, remove the script 
+    */
+
     async initialize(config) { 
       
         this.href = config.url;
@@ -19,6 +25,7 @@ module.exports = class Twitter {
   
     async script() {
 
+      document.body.removeChild(this.script);
     }
 
     appendWidgetScript() {
