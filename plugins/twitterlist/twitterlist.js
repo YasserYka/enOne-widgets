@@ -8,7 +8,7 @@ module.exports = class TwitterList {
 
   async initialize(config) { 
     
-      this.href = config.url;
+      this.url = config.url;
     
     this.appendWidgetScript();
   }
@@ -17,7 +17,7 @@ module.exports = class TwitterList {
 
     return (
       <div class="card shadow bg-dark">
-          <a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/the1certificate/lists/dev-16567?ref_src=twsrc%5Etfw"></a>
+          <a class="twitter-timeline" data-height="500" data-theme="dark" href={this.url}></a>
           <div class="card-footer"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></div>
       </div>
     );
