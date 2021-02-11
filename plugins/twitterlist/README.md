@@ -6,4 +6,4 @@ Twitter List will show you a stream of Tweets from selected accounts. You can cr
 
 Option | Description
 --- | --- 
-url | URL of your twitter list.\ Default: Pre made twitter list about web development & design
+url | URL of your twitter list.<br> Default: Pre made twitter list about web development & design
