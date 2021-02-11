@@ -62,3 +62,11 @@ Your plugin description
 # Guide
 How to configure
 ```
+
+## Hot Reload
+
+To hot reload your plugin while developing, make sure your plugin folder is in `/output` then run
+
+```
+$ npm start hotreload YourPluginName
+```
