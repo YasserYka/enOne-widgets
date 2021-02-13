@@ -55,6 +55,7 @@ module.exports = class WeatherAPI {
   }
 
   async script() {
+    
     setInterval(this.update, 43200000);
   }
 };
