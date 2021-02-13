@@ -1,4 +1,4 @@
-module.exports = class note_keeper {
+module.exports = class notekeeper {
   async initialize(config) {}
 
   // JSX code to be displayed.
@@ -12,7 +12,7 @@ module.exports = class note_keeper {
   }
 
   // All logic can be added  here
-  script() {
+  async script() {
     const data = window.localStorage.getItem("note_keeper");
 
     if (data)
