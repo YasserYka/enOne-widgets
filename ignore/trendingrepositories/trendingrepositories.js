@@ -7,9 +7,9 @@ module.exports = class TrendingRepositories {
 
   async render() {
     return (
-      <div class="card">
+      <div class="card" style="width: 18rem;">
         <div class="card-header">Trending repositories on GitHub <i class="fa fa-github fa-lg ml-1"></i></div>
-          <div id="repositories-list" class="list-group"></div>
+          <div id="repositories-list" class="list-group" style="width: 18rem;"></div>
       </div>
     );
   }
@@ -24,10 +24,9 @@ module.exports = class TrendingRepositories {
     this.fetchTrendingPage().then((repositories) => {
 
       repositories = repositories.slice(0, 6);
-
-      document.getElementById("repositories-list").innerHTML = repositories
-        .map((repository) => {
-          return (
+  
+      repositories.forEach((repository) => {
+        document.getElementById("repositories-list").appendChild(
             <a target="_blank" href={repository.url} class="list-group-item list-group-item-action">
               <h5 class="list-group-item-heading">{repository.title}</h5>
               <p class="list-group-item-text">{repository.description}</p>
@@ -35,8 +34,7 @@ module.exports = class TrendingRepositories {
               <span class="badge">{repository.stars}</span>
             </a>
           );
-        })
-        .join(" ");
+        });
     });
   }
 

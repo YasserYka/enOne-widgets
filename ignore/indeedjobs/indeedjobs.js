@@ -49,11 +49,11 @@ module.exports = class IndeedJobs {
         limit: 8,
       })
       .then((jobs) => {
-        document.getElementById("jobs-row").innerHTML = jobs.map(job => 
-            <tr href={job.url}>
-                <td><a href={job.url}>{job.title}</a></td> <td><a href={job.url}>{job.company}</a></td> <td><a href={job.url}>{job.postDate}</a></td>
-            </tr>
-        ).join(" ");
+        jobs.map(job => 
+          document.getElementById("jobs-row").appendChild(<tr href={job.url}>
+            <td><a href={job.url}>{job.title}</a></td> <td><a href={job.url}>{job.company}</a></td> <td><a href={job.url}>{job.postDate}</a></td>
+        </tr>)
+        );
       });
   }
 };

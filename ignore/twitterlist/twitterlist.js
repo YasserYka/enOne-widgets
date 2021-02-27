@@ -16,9 +16,8 @@ module.exports = class TwitterList {
   async render() {
 
     return (
-      <div class="card shadow bg-dark">
-          <a class="twitter-timeline" data-height="500" data-theme="dark" href={this.url}></a>
-          <div class="card-footer"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></div>
+      <div class="card">
+          <a class="twitter-timeline" data-height="500" href={this.url}></a>
       </div>
     );
   }

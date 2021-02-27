@@ -1,3 +1,4 @@
+
 module.exports = class notekeeper {
   async initialize(config) {}
 

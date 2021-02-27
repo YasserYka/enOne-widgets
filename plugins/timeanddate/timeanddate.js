@@ -4,7 +4,7 @@ module.exports = class TimeAndDate {
 
   async render() {
     return (
-      <div class="container text-center" style="color: white;">
+      <div class="card text-center" style="padding: 2rem;">
           <h1 id="clock"></h1>
           <h4 id="day"></h4>
           <h6 id="date"></h6>
@@ -19,7 +19,7 @@ module.exports = class TimeAndDate {
   }
 
   async renderCurrentTime() {
-    let date = new Date();
+    let date = new Date();    
 
     document.getElementById("clock").innerHTML = date.toLocaleTimeString([], { timeStyle: "short" });
     document.getElementById("day").innerHTML = date.toLocaleString('en-us', {weekday:'long'});

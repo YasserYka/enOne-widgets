@@ -9,7 +9,7 @@ module.exports = class Subreddit {
   
     async render() {
       return (
-        <div class="card" style="width: 26rem;">
+        <div class="card" style="width: 18rem;">
         <div class="card-header">Top Posts <i class="fa fa-reddit fa-lg ml-1"></i></div>
           <div id="reddit-posts-list" class="list-group"></div>
       </div>
@@ -42,13 +42,13 @@ module.exports = class Subreddit {
 
     renderPosts(posts){
 
-        document.getElementById('reddit-posts-list').innerHTML = posts.map( post =>
+        posts.map( post => document.getElementById('reddit-posts-list').appendChild( 
             <a target="_blank" href={this.baseurl + post.data.permalink} class="list-group-item list-group-item-action">
-              <p class="list-group-item-text">{post.data.title}</p>
+              <b class="list-group-item-text">{post.data.title}</b>
 
               <span class="badge">{post.data.ups} Upvotes</span>
             </a>
-        ).join(' ');
+        ));
     }
 
   };
