@@ -11,14 +11,18 @@ module.exports = class Hackernews {
     async render() {
 
       return (
-        <div class="card mt-2 shadow bg-dark text-center">
+        <div class="card mt-2 shadow text-center" style="width: 18rem;">
             <div class="card-header">
                 Today's hottest stories! <i class="fa fa-hacker-news fa-lg" aria-hidden="true"></i>
             </div>
             
             <div class="card-body">
                 <ul class="list-group list-group-flush" id="hackernews">
-                
+                    <div class="text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -36,9 +40,10 @@ module.exports = class Hackernews {
 
         const hackernewsElement = document.getElementById("hackernews");
 
-        hackernewsElement.innerHTML = '';
-
         this.getStories().then(stories => { 
+            console.log('tf?')
+            hackernewsElement.innerHTML = '';
+
             stories.forEach(story =>{
                 document.getElementById("hackernews").appendChild(<a target="_blank" href={story.url} class="list-group-item list-group-item-action"> {story.title} </a>);
             });
