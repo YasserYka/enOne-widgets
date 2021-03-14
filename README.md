@@ -4,25 +4,25 @@ EnOne's widgets
 
 ## Development
 
-To start writing your own plugin, run
+To start writing your own widgets, run
 
 ```
 $ npm setup
 ```
 
-Then answer some simple questions to generate starter folder, it will create a folder with your plugin name and generate the following initial structure in it.
+Then answer some simple questions to generate starter folder, it will create a folder with your widget name and generate the following initial structure in it.
 
 ```
-📂YourPluginName
-├── 📜YourPluginName.js
+📂YourWidgetName
+├── 📜YourWidgetName.js
 ├── 📜configuration.json
 ├── 📜README.md  
 ```
 
-##### *YourPluginName.js*
+##### *YourWidgetName.js*
 
 ```
-module.exports = class YourPluginName {
+module.exports = class YourWidgetName {
   
   // called when the module is initialize
   async initialize() {
@@ -37,7 +37,7 @@ module.exports = class YourPluginName {
     );
   }
 
-  // scripts to make plugin dynamic
+  // scripts to make Widget dynamic
   async script() {
 
   }
@@ -57,8 +57,8 @@ module.exports = class YourPluginName {
 ##### *README.md*
 
 ```
-# YourPluginName
-Your plugin description
+# YourWidgetName
+Your Widget description
 
 # Guide
 How to configure
@@ -66,8 +66,8 @@ How to configure
 
 ## Hot Reload
 
-To hot reload your plugin while developing, make sure your plugin folder is in `/output` then run
+To hot reload your widget while developing, make sure your widget folder is in `/output` then run
 
 ```
-$ npm start hotreload YourPluginName
+$ npm start hotreload YourWidgetName
 ```
