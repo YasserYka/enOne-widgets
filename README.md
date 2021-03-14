@@ -1,5 +1,6 @@
-# In0ne Plugins
+# enOne Widgets
 
+EnOne's widgets
 
 ## Development
 
