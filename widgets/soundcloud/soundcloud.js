@@ -9,14 +9,11 @@ module.exports = class Soundcloud {
   // return JSX code to generates dom to be displayed.
   async render() {
     return (
-      <div class="card shadow bg-dark text-center">
-              
-          <div class="card-header"> 
-              {this.title} <i class="fa fa-soundcloud fa-sm"></i>
-          </div>
-          <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" scrolling="no" allow="autoplay" src={this.playlist} width="100%" height="300" frameborder="no"></iframe>
-          </div>
+      <div class="card shadow text-center">
+            <div class="card-header"> 
+                {this.title} <i class="fa fa-soundcloud fa-sm"></i>
+            </div>
+            <iframe class="embed-responsive-item" scrolling="no" allow="autoplay" src={this.playlist} width="100%" height="300" frameborder="no"></iframe>
       </div>
     );
   }

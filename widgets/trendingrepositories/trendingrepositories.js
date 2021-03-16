@@ -7,9 +7,9 @@ module.exports = class TrendingRepositories {
 
   async render() {
     return (
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 20rem;">
         <div class="card-header">Trending repositories on GitHub <i class="fa fa-github fa-lg ml-1"></i></div>
-          <div id="repositories-list" class="list-group" style="width: 18rem;"></div>
+          <div id="repositories-list" class="list-group" style="width: 20rem;"></div>
       </div>
     );
   }
@@ -28,8 +28,8 @@ module.exports = class TrendingRepositories {
       repositories.forEach((repository) => {
         document.getElementById("repositories-list").appendChild(
             <a target="_blank" href={repository.url} class="list-group-item list-group-item-action">
-              <h5 class="list-group-item-heading">{repository.title}</h5>
-              <p class="list-group-item-text">{repository.description}</p>
+              <h6 class="list-group-item-heading">{repository.title}</h6>
+              <i class="list-group-item-text">{repository.description}</i>
 
               <span class="badge">{repository.stars}</span>
             </a>
