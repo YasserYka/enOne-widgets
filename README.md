@@ -1,22 +1,27 @@
-# enOne Widgets
+<h1 align="center">
+  <br>
+    <img src="rawlogo.png" alt="enOne-logo" width="800">
+  <br>
+</h1>
 
-EnOne's widgets
+<h4 align="center"> <b>enOne</b>'s sub-repository for maintaining widgets.</h4>
 
 ## Development
 
 To start writing your own widgets, run
 
 ```
-$ npm setup
+$ npm run setup
 ```
 
-Then answer some simple questions to generate starter folder, it will create a folder with your widget name and generate the following initial structure in it.
+Then answer some simple questions to generate starter package, it will create a folder with your widget name at `/output/YouWidgetName` and generate the following initial structure in it.
 
 ```
-📂YourWidgetName
+📂YourWidgetDirectory
 ├── 📜YourWidgetName.js
-├── 📜configuration.json
-├── 📜README.md  
+├── 📜config.json
+├── 📜README.md
+├── 📜package.json
 ```
 
 ##### *YourWidgetName.js*
@@ -24,8 +29,8 @@ Then answer some simple questions to generate starter folder, it will create a f
 ```
 module.exports = class YourWidgetName {
   
-  // called when the module is initialize
-  async initialize() {
+  // called when the module is being initialize
+  async initialize(config) {
 
   }
 
@@ -33,7 +38,7 @@ module.exports = class YourWidgetName {
   async render() {
 
     return (
-        <div></div>
+        <div id="YourWidgetName"></div>
     );
   }
 
@@ -45,12 +50,14 @@ module.exports = class YourWidgetName {
 };
 ```
 
-##### *configuration.json*
+##### *config.json*
+
+The config file can be used inside widget's index file
 
 ```
 {
   "author": "YourName",
-  "verion": "1.0"
+  "index": "YourWidgetName.js"
 }
 ```
 
@@ -64,10 +71,19 @@ Your Widget description
 How to configure
 ```
 
+##### *package.json*
+
+To install npm packages to be used inside your widgets, from the root directory please run
+
+```
+$ npm install --prefix ./output/YourWidgetDirectory/ PackageName
+```
+
 ## Hot Reload
 
 To hot reload your widget while developing, make sure your widget folder is in `/output` then run
 
 ```
-$ npm start hotreload YourWidgetName
+$ npm start hotreload PathOfYourWidgetDirectory
 ```
+
