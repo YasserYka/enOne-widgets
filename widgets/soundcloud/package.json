@@ -1,0 +1,12 @@
+{
+  "name": "soundcloud",
+  "version": "1.0.0",
+  "description": "Soundcloud plugin to listen to pre-defined lists based on part of day",
+  "main": "soundcloud.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

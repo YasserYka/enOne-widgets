@@ -1,5 +1,4 @@
-// It's critical to declare imports with 'var'
-var got = require("got");
+const got = require("got");
 const cheerio = require("cheerio");
 
 module.exports = class TrendingRepositories {

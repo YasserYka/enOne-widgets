@@ -1,0 +1,12 @@
+{
+  "name": "twitterlist",
+  "version": "1.0.0",
+  "description": "Twitter List will show you a stream of Tweets from selected accounts. You can create your own list",
+  "main": "twitterlist.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

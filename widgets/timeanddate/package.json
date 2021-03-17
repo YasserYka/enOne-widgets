@@ -1,0 +1,12 @@
+{
+  "name": "timeanddate",
+  "version": "1.0.0",
+  "description": "Plugin to show date and time",
+  "main": "timeanddate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

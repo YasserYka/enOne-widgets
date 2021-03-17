@@ -1,0 +1,12 @@
+{
+  "name": "hackernews",
+  "version": "1.0.0",
+  "description": "Show top posts in hackernews title and their links",
+  "main": "hackernews.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

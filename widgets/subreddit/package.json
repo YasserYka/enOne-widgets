@@ -1,0 +1,12 @@
+{
+  "name": "subreddit",
+  "version": "1.0.0",
+  "description": "Plugin to show top posts in subreddit",
+  "main": "subreddit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
