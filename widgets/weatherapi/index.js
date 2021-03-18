@@ -23,7 +23,7 @@ module.exports = class WeatherAPI {
   }
 
   getWeatherData() {
-    return got("https://www.metaweather.com/api/location/"+ weoid +"/")
+    return got("https://www.metaweather.com/api/location/"+ this.weoid +"/")
       .then((response) => {
         const weatherData = JSON.parse(response.body).consolidated_weather[0];
 

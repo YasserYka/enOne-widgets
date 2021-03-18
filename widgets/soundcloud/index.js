@@ -4,7 +4,7 @@ module.exports = class Soundcloud {
 
     const partOfDay = this.getPartOfDay();
 
-    this.playlist = this.getPlaylist(config, partOfDay);
+    this.playlist = this.getPlaylist(config.playlists, partOfDay);
     this.title = this.getTitle(partOfDay);
   }
 
@@ -27,9 +27,9 @@ module.exports = class Soundcloud {
   I      finish scraping algorithm or find ready to use one that fits this plugin needs
   */
 
- getPlaylist(config, partOfDay){
+ getPlaylist(playlists, partOfDay){
 
-      const ids = config[partOfDay];
+      const ids = playlists[partOfDay];
 
       const randomIndex = Math.floor(Math.random() * ids.length); 
 
