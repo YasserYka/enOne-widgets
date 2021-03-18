@@ -53,7 +53,7 @@ module.exports = class TODOs {
 
     this.getTodos().forEach((todo, index) =>
       todoListElement.appendChild(
-        <li data-id={index} class="list-group-item todo d-flex justify-content-between align-items-center">
+        <li data-id={index} class="list-group-item border-0 todo d-flex justify-content-between align-items-center">
           {todo}
           <span class="badge deletetodo badge-secondary badge-pill" style="cursor:pointer;">
             X

@@ -2,8 +2,10 @@ module.exports = class Soundcloud {
   
   async initialize(config) {
 
-      this.playlist = this.getPlaylist();
-      this.title = this.getTitle();
+    const partOfDay = this.getPartOfDay();
+
+    this.playlist = this.getPlaylist(config, partOfDay);
+    this.title = this.getTitle(partOfDay);
   }
 
   // return JSX code to generates dom to be displayed.
@@ -25,26 +27,22 @@ module.exports = class Soundcloud {
   I      finish scraping algorithm or find ready to use one that fits this plugin needs
   */
 
- getPlaylist(){
+ getPlaylist(config, partOfDay){
 
-      const ids = {
-          'MORNING': [272741983],
-          'AFTERNOON': [792881085],
-          'MIDNIGHT': [1130704939]
-      }[this.getPartOfDay()];
+      const ids = config[partOfDay];
 
       const randomIndex = Math.floor(Math.random() * ids.length); 
 
       return this.buildEmbeddedUrl(ids[randomIndex]);
   }
 
-  getTitle(){
+  getTitle(partOfDay){
 
       return {
           'MORNING': 'Songs to Kickstart Your Day',
           'AFTERNOON': 'Songs To Lighten The Mood',
           'MIDNIGHT': 'Late Night Vibes'
-      }[this.getPartOfDay()];
+      }[partOfDay];
   }
 
   getPartOfDay(){

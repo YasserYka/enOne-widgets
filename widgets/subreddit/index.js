@@ -5,6 +5,7 @@ module.exports = class Subreddit {
     async initialize(config) {
   
         this.baseurl = 'https://www.reddit.com/';
+        this.subreddit = config.subreddit;
     }
   
     async render() {
@@ -33,7 +34,7 @@ module.exports = class Subreddit {
 
     async getSubredditPosts() {
 
-        return await got("https://www.reddit.com/r/webdev/top/.json").then(response => {
+        return await got(`https://www.reddit.com/r/${this.subreddit}/top/.json`).then(response => {
 
             return JSON.parse(response.body);
         });

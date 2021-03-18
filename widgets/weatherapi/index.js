@@ -2,6 +2,8 @@ const got = require("got");
 
 module.exports = class WeatherAPI {
   async initialize(config) {
+    this.weoid = config.weoid;
+
     this.weather = {
       temperature: null,
       image: null,
@@ -21,7 +23,7 @@ module.exports = class WeatherAPI {
   }
 
   getWeatherData() {
-    return got("https://www.metaweather.com/api/location/44418/")
+    return got("https://www.metaweather.com/api/location/"+ weoid +"/")
       .then((response) => {
         const weatherData = JSON.parse(response.body).consolidated_weather[0];
 
