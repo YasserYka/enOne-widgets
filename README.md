@@ -4,7 +4,9 @@
   <br>
 </h1>
 
-<h4 align="center"> <b>enOne</b>'s sub-repository for maintaining widgets.</h4>
+<h4 align="center"> <b><a href="https://github.com/YasserYka/enOne">enOne</a></b>'s sub-repository for maintaining widgets.</h4>
+
+<p align="center">enOne is still under testing and in PRE-RELEASE phase, your feedback is much appreciated!</p>
 
 ## Development
 
