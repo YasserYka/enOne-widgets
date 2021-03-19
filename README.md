@@ -10,23 +10,23 @@
 
 ## Development
 
-To start writing your own widgets, run
+To start writing your own widgets, inside [`enOne`](https://github.com/YasserYka/enOne)'s repository run
 
 ```
 $ npm run setup
 ```
 
-Then answer some simple questions to generate starter package, it will create a folder with your widget name at `/output/YouWidgetName` and generate the following initial structure in it.
+Then answer some simple questions to generate starter package, it will create a folder with your widget name at `/enOne-widgets/widgets-dev/YourWidgetDirectory` and generate the following initial structure in it.
 
 ```
 📂YourWidgetDirectory
-├── 📜YourWidgetName.js
+├── 📜index.js
 ├── 📜config.json
 ├── 📜README.md
 ├── 📜package.json
 ```
 
-##### *YourWidgetName.js*
+##### *index.js*
 
 ```
 module.exports = class YourWidgetName {
@@ -59,7 +59,6 @@ The config file can be used inside widget's index file
 ```
 {
   "author": "YourName",
-  "index": "YourWidgetName.js"
 }
 ```
 
@@ -78,14 +77,17 @@ How to configure
 To install npm packages to be used inside your widgets, from the root directory please run
 
 ```
-$ npm install --prefix ./output/YourWidgetDirectory/ PackageName
+$ npm install --prefix ./PathToYour/YourWidgetDirectory/ PackageName
 ```
 
 ## Hot Reload
 
-To hot reload your widget while developing, make sure your widget folder is in `/output` then run
+To hot reload your widget while developing, make sure your widget folder is in `/enOne-widgets/widgets-dev` then run
 
 ```
-$ npm start hotreload PathOfYourWidgetDirectory
+$ npm start hotreload YourWidgetDirectoryName
 ```
 
+# Pull Request
+
+Move your YourWidgetDirectory from `/enOne-widgets/widgets-dev` to `/enOne-widgets/widgets` before submitting a pull request
