@@ -9,10 +9,8 @@ module.exports = class TODOs {
     return (
       <div class="card mt-2 shadow text-center">
         <div class="card-header">TODO</div>
-        <div class="card-body">
-          <input id="todo-input" type="text" placeholder="Enter your task" />
-          <ul id="todolist" class="list-group mt-1"></ul>
-        </div>
+        <input id="todo-input" type="text" placeholder="Enter your task" style="border: 0; padding: 0.5rem" />
+        <ul id="todolist" class="list-group mt-1"></ul>
       </div>
     );
   }
