@@ -10,9 +10,9 @@ module.exports = class Cryptocurrency {
 
   async render() {
     return (
-      <div class="card" style="width: 20rem;">
+      <div class="card" style="width: 16rem;">
         <div class="card-header">Cryptocurrency <i class="fa fa-btc fa-lg ml-1"></i></div>
-          <div id="coins-list" class="list-group" style="width: 20rem;"></div>
+          <div id="coins-list" class="list-group" style="width: 16rem;"></div>
       </div>
     );
   }
