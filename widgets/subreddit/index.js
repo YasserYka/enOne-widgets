@@ -45,9 +45,12 @@ module.exports = class Subreddit {
 
         posts.map( post => document.getElementById('reddit-posts-list').appendChild( 
             <a target="_blank" href={this.baseurl + post.data.permalink} class="list-group-item list-group-item-action">
-              <b class="list-group-item-text">{post.data.title}</b>
-
-              <span class="badge">{post.data.ups} Upvotes</span>
+                <div class="row">
+                    <div class="col">
+                        <div class="list-group-item-text">{post.data.title} <span class="badge text-muted">{post.data.ups} Upvotes</span></div>
+                    </div>
+                    {post.data.thumbnail != "self" ? <img width="50" height="50" style="border: 1px solid #ddd; border-radius: 3px;" src={post.data.thumbnail} /> : null}
+                </div>
             </a>
         ));
     }
