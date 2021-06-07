@@ -1,14 +1,5 @@
-var gis = require('g-i-s');
+const gis = require('g-i-s');
 const got = require("got");
-
-function logResults(error, results) {
-  if (error) {
-    console.log(error);
-  }
-  else {
-    console.log(JSON.stringify(results, null, '  '));
-  }
-}
 
 module.exports = class WordOfTheDay {
 
@@ -25,18 +16,33 @@ module.exports = class WordOfTheDay {
 
     if (error || images.length == 0)
       console.error("couldn't fetch an image!");
+    else {
 
+      // images structure [{url, width, height}]
+      const firstImageUrl = images[0]['url'];
+
+      return (
+        <img src={firstImageUrl} />
+      );
+    }
   }
 
   // provider of random word API is https://github.com/mcnaveen/
-  async fetchWord() {
+  async fetchRandomWord() {
 
-    const url = "https://random-words-api.vercel.app/word";
+    const randomWordAPI = "https://random-words-api.vercel.app/word";
 
-
-
+    return await got(randomWordAPI).then(response => JSON.parse(response.body)).catch(error => {
+      console.error(error);
+    });
   }
 
-  async script() {}
+  async script() {
+
+    const randomWord = fetchRandomWord();
+
+    gis(randomWord, renderImage );
+
+  }
 
 };
