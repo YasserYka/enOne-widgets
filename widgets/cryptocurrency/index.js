@@ -20,7 +20,7 @@ module.exports = class Cryptocurrency {
   async script() {
     this.renderCoins();
 
-    setInterval(this.renderRepositories, 120000 /* 2 minutes in miliseconds */);
+    setInterval(this.renderRepositories, 10000 /* 10 seconds in miliseconds */);
   }
 
   renderCoins() {
