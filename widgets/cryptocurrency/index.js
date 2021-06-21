@@ -35,9 +35,9 @@ module.exports = class Cryptocurrency {
 
       coins.forEach((coin) => {
           coinsListElement.appendChild(
-            <div class="d-flex justify-content-between p-1">          
-              <div class="p-1" style="font-weight:bold;"><img class="p-1" style="width: 28px;" src={__dirname + "/defaultcoin.png"} /> {coin.name}</div>
-              <div class="p-1">
+            <div class="d-flex justify-content-between list-group-item">          
+              <div style="font-weight:bold;"><img style="width: 28px;" src={__dirname + "/defaultcoin.png"} /> {coin.name}</div>
+              <div>
                   <div style="font-size:16px">$ {parseFloat(coin.priceUsd).toFixed(3)}</div>
                   <div class={"text-right badge" + coin.changePercent24Hr > 0 ? "text-success" : "text-danger"} style="font-size:12px">{parseFloat(coin.changePercent24Hr).toFixed(3) + "%"}</div>
               </div>
