@@ -8,8 +8,16 @@ module.exports = class WordOfTheDay {
   }
 
   async render() {
-
-    return ();
+    return (
+      <div class="card">
+        <img style="width: 15rem; height: 15rem; filter: brightness(.55);object-fit: cover;" class="card-img-top" id="wordoftheday-img" src={__dirname + "/default.jpg"} />
+        <div class="card-img-overlay text-white" style="font-family: 'Roboto', sans-serif;">
+          <h2 id="wordoftheday-word"></h2>
+          <h6 id="wordoftheday-definition"></h6>
+          <h4 id="wordoftheday-pronunciation"></h4>
+        </div>
+      </div>
+    );
   }
 
   async renderImage(error, images) {
@@ -21,9 +29,9 @@ module.exports = class WordOfTheDay {
       // images structure [{url, width, height}]
       const firstImageUrl = images[0]['url'];
 
-      return (
-        <img src={firstImageUrl} />
-      );
+      const wordOfTheDayElement = document.getElementById("wordoftheday-img"); 
+
+      wordOfTheDayElement.src = firstImageUrl;
     }
   }
 
@@ -32,16 +40,26 @@ module.exports = class WordOfTheDay {
 
     const randomWordAPI = "https://random-words-api.vercel.app/word";
 
-    return await got(randomWordAPI).then(response => JSON.parse(response.body)).catch(error => {
+    return await got(randomWordAPI).then(response => {
+      const responseBody = JSON.parse(response.body);
+
+      const word = responseBody[0];
+
+      return word;
+    }).catch(error => {
       console.error(error);
     });
   }
 
   async script() {
 
-    const randomWord = fetchRandomWord();
+    const randomWordOject = await this.fetchRandomWord();
 
-    gis(randomWord, renderImage );
+    document.getElementById('wordoftheday-pronunciation').innerHTML = '"' + randomWordOject.pronunciation + '"';
+    document.getElementById('wordoftheday-definition').innerHTML = randomWordOject.definition;
+    document.getElementById('wordoftheday-word').innerHTML = randomWordOject.word;
+
+    gis(randomWordOject.word, this.renderImage);
 
   }
 
