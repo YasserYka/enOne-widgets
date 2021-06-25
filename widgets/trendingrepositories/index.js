@@ -45,7 +45,7 @@ module.exports = class TrendingRepositories {
         return selector(".Box-row")
           .get()
           .map((element) => {
-            element = cheerio(element);
+            element = selector(element);
 
             let uri = element.find("h1:nth-child(2) > a:nth-child(1)").attr("href").substring(1);
 
