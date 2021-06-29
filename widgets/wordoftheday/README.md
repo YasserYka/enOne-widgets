@@ -1,3 +1,3 @@
 # Key Of The Word 
 
-Generates a word and definition 
+Generates a random word with definition and prononciation 

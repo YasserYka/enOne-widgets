@@ -3,8 +3,9 @@ const got = require("got");
 
 module.exports = class WordOfTheDay {
 
-  async initialize(config) {
+  async initialize(config) { 
 
+    this.update = this.update.bind(this);
   }
 
   async render() {
@@ -51,7 +52,7 @@ module.exports = class WordOfTheDay {
     });
   }
 
-  async script() {
+  async update(){
 
     const randomWordOject = await this.fetchRandomWord();
 
@@ -60,7 +61,12 @@ module.exports = class WordOfTheDay {
     document.getElementById('wordoftheday-word').innerHTML = randomWordOject.word;
 
     gis(randomWordOject.word, this.renderImage);
+  }
 
+  async script() {
+    this.update();
+
+    setInterval(this.update, 60000 /* 1 minute in miliseconds */);
   }
 
 };
